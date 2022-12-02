@@ -1,0 +1,3 @@
+compiled using
+
+cobc -xj -free <FILE>
