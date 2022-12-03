@@ -1,8 +1,7 @@
 module A exposing (..)
 
 import Input exposing (inputA)
-import String
-
+import Shared exposing (charToPriority)
 
 run =
     let
@@ -36,15 +35,3 @@ getPriorities line prios =
     in
     prio :: prios
 
-
-charToPriority : Char -> Int
-charToPriority c =
-    let
-        code =
-            Char.toCode c
-    in
-    if code >= 65 && code <= 90 then
-        code - 64 + 26
-
-    else
-        code - 96
