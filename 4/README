@@ -1,0 +1,1 @@
+compiled with gcc --std=c17 a.c -o a.out -O2
