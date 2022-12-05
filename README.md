@@ -6,3 +6,4 @@
 |   2 | Cobol    | GNU Cobol 3.1.2      |
 |   3 | Elm      | Elm 0.19.1           |
 |   4 | C        | clang 14.0.0         |
+|   5 | C#       | .NET 7               |
