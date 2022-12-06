@@ -1,0 +1,4 @@
+takes a window size as input:
+
+- `node 6.mjs 4` for part 1
+- `node 6.mjs 14` for part 2
