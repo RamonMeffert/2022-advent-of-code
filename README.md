@@ -9,3 +9,4 @@
 |   5 | C#       | .NET 7               |
 |   6 | JS       | Node 18.6.0          |
 |   7 | Go       | Go 1.19.4            |
+|   8 | Python   | Python 3.11.1        |
