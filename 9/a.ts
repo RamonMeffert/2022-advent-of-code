@@ -6,7 +6,7 @@ await main();
 async function main() {
     const input = await fs.readFile("input", "utf-8");
 
-    // Head an tail start at the same location
+    // Head and tail start at the same location
     let headLocation: Location = { x: 0, y: 0 };
     let tailLocation: Location = { x: 0, y: 0 };
 
@@ -14,7 +14,7 @@ async function main() {
     let tailVisited: Set<string> = new Set();
 
     for (const move of input.split("\n")) {
-        let [dir, num] = move.split(" ");
+        const [dir, num] = move.split(" ");
         for (let i = 0; i < parseInt(num); i++) {
             headLocation = moveHead(headLocation, dir);
             tailLocation = moveTail(tailLocation, headLocation);
