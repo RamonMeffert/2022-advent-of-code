@@ -6,9 +6,15 @@ await main();
 async function main() {
     const input = await fs.readFile("input", "utf-8");
 
-    // Head and tail start at the same location
-    let headLocation: Location = { x: 0, y: 0 };
-    let tailLocation: Location = { x: 0, y: 0 };
+    // All knots start at the same location
+    const numKnots = parseInt(process.argv[2]) || 2;
+
+    // Tried Array.fill here first, but that reuses the same object. so all
+    // items in the array point to the same object 
+    let rope: Location[] = [];
+    for (let i = 0; i < numKnots; i++) {
+        rope[i] = { x: 0, y: 0};
+    }
 
     // Keep track of where the tail has been using a set
     let tailVisited: Set<string> = new Set();
@@ -16,9 +22,11 @@ async function main() {
     for (const move of input.split("\n")) {
         const [dir, num] = move.split(" ");
         for (let i = 0; i < parseInt(num); i++) {
-            headLocation = moveHead(headLocation, dir);
-            tailLocation = moveTail(tailLocation, headLocation);
-            tailVisited.add(JSON.stringify(tailLocation));
+            rope[0] = moveHead(rope[0], dir);
+            for (let j = 1; j < numKnots; j++) {
+                rope[j] = moveTail(rope[j], rope[j - 1]);
+            }
+            tailVisited.add(JSON.stringify(rope[numKnots - 1]));
         }
     }
 

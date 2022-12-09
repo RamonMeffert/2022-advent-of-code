@@ -1,1 +1,3 @@
-evaluate by calling `yarn a` or `yarn b`.
+evaluate by calling `yarn rope <length of rope>`.
+
+So `yarn rope 2` for part a, `yarn rope 10` for part b.

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "a": "ts-node a.ts"
+    "rope": "ts-node 9.ts"
   },
   "keywords": [],
   "author": "",
