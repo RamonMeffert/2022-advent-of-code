@@ -22,8 +22,10 @@ async function main() {
         }
     }
 
-    // Show a map of all tail visits
+    // Save a map of all tail visits
     saveTailVisitsMapToFile(tailVisited);
+
+    // Print result
     console.log(tailVisited.size);
 }
 
