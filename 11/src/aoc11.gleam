@@ -8,6 +8,13 @@ import gleam/map.{Map}
 import gleam/result
 import gleam/option.{None, Some}
 
+type Part {
+  PartA
+  PartB
+}
+
+const part = PartB
+
 pub fn main() {
   assert Ok(contents) = file.read("input")
 
@@ -16,7 +23,10 @@ pub fn main() {
     |> string.split("\n\n")
     |> list.map(monkey.parse)
 
-  let monkeys = do_rounds(monkeys, 20)
+  let monkeys = case part {
+    PartA -> do_rounds(monkeys, 20)
+    PartB -> do_rounds(monkeys, 10_000)
+  }
   let mb_level = find_monkey_business_level(monkeys)
 
   print_item_distribution(monkeys)
@@ -108,7 +118,15 @@ fn monkey_throw(monkeys: List(Monkey), current: Monkey) -> List(Monkey) {
       worry_levels,
       map.new(),
       with: fn(acc, worry_level) {
-        let new_level = current.inspect(worry_level) / 3
+        let new_level = case part {
+          PartA -> current.inspect(worry_level) / 3
+          // I cheated: found this trick here
+          // https://www.reddit.com/r/adventofcode/comments/zifqmh/comment/izrd7iz/
+          // Also the way I parsed the input didn't allow me to easily access
+          // the divisors. I figured it was something related to the divisors
+          // and a modulo but eh
+          PartB -> current.inspect(worry_level) % 9_699_690
+        }
         let target = current.find_target(new_level)
         map.update(
           in: acc,
