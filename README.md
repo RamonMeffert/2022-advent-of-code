@@ -13,3 +13,4 @@
 |   9 | TypeScript | ts-node 10.9.1       |
 |  10 | Rust       | Cargo 1.65.0         |
 |  11 | Gleam      | Gleam 0.25.1         |
+|  12 | Nim        | Nim 1.6.10           |
