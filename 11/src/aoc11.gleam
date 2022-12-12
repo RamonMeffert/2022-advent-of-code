@@ -5,13 +5,11 @@ import gleam/list
 import gleam/io
 import gleam/int
 import gleam/map.{Map}
-import gleam/function
 import gleam/result
-import gleam/order
 import gleam/option.{None, Some}
 
 pub fn main() {
-  assert Ok(contents) = file.read("testin")
+  assert Ok(contents) = file.read("input")
 
   let monkeys =
     contents
@@ -92,7 +90,14 @@ fn monkey_throw(monkeys: List(Monkey), current: Monkey) -> List(Monkey) {
       monkeys,
       fn(m) {
         case m.id == current.id {
-          True -> Ok(Monkey(..m, worry_levels: list.new()))
+          True ->
+            Ok(
+              Monkey(
+                ..m,
+                worry_levels: list.new(),
+                inspect_count: m.inspect_count + list.length(worry_levels),
+              ),
+            )
           False -> Ok(m)
         }
       },
@@ -130,7 +135,6 @@ fn monkey_throw(monkeys: List(Monkey), current: Monkey) -> List(Monkey) {
               m.worry_levels,
               list.reverse(worry_levels),
             ),
-            inspect_count: m.inspect_count + list.length(worry_levels),
           )
         Error(_) -> m
       }
