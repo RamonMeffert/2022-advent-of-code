@@ -11,4 +11,5 @@
 |   7 | Go         | Go 1.19.4            |
 |   8 | Python     | Python 3.11.1        |
 |   9 | TypeScript | ts-node 10.9.1       |
-| 10  | Rust       | Cargo 1.65.0         |
+|  10 | Rust       | Cargo 1.65.0         |
+|  11 | Gleam      | Gleam 0.25.1         |
