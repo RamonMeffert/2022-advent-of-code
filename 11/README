@@ -1,1 +1,2 @@
-evaluate by running `gleam run`
+evaluate by running `gleam run`. change `const part` to the right part to change
+which part is evaluated
